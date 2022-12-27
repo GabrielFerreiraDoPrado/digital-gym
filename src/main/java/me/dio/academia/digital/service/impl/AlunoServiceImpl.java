@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import me.dio.academia.digital.entity.Aluno;
+import me.dio.academia.digital.entity.AvaliacaoFisica;
 import me.dio.academia.digital.entity.form.AlunoForm;
 import me.dio.academia.digital.entity.form.AlunoUpdateForm;
 import me.dio.academia.digital.repository.AlunoRepository;
@@ -30,8 +31,7 @@ public class AlunoServiceImpl implements IAlunoService{
 
 	@Override
 	public Aluno get(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findById(id).get();
 	}
 
 	@Override
@@ -41,13 +41,21 @@ public class AlunoServiceImpl implements IAlunoService{
 
 	@Override
 	public Aluno update(Long id, AlunoUpdateForm formUpdate) {
-		// TODO Auto-generated method stub
-		return null;
+		Aluno aluno = repository.findById(id).get();
+		aluno.setNome(formUpdate.getNome());
+		aluno.setBairro(formUpdate.getBairro());
+		aluno.setDataDeNascimento(formUpdate.getDataDeNascimento());
+		return repository.save(aluno);
 	}
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		
+		Aluno aluno = repository.findById(id).get();
+		repository.delete(aluno);
+	}
+
+	@Override
+	public List<AvaliacaoFisica> getAllAvaliacaoFisica(Long id) {
+		return repository.findById(id).get().getAvaliacoes();
 	}
 }
