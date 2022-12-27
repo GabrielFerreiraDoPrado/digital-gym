@@ -3,7 +3,7 @@
 
 # About the Project
 
-The Digital Gym is a back-end Springboot project developed during the Cloud Fullstack Bootcamp, made by [Digital Innovation One](https://www.dio.me/). It is an RESTful API with an emphasis in its entities modelling, in a gym domain.
+The Digital Gym is a back-end Springboot project developed during the Cloud Fullstack Bootcamp, made by [Digital Innovation One](https://www.dio.me/). It is an RESTful API with an emphasis in its entities modeling, in a gym domain.
 
 
 ## Objectives
