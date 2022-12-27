@@ -1,5 +1,7 @@
 package me.dio.academia.digital.service.impl;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +37,14 @@ public class AlunoServiceImpl implements IAlunoService{
 	}
 
 	@Override
-	public List<Aluno> getAll() {
-		return repository.findAll();
+	public List<Aluno> getAll(String dataDeNascimento) {
+		if (dataDeNascimento == null) {
+			return repository.findAll();
+		} else {
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			LocalDate data = LocalDate.parse(dataDeNascimento, dtf);
+			return repository.findByDataDeNascimento(data);
+		}
 	}
 
 	@Override
