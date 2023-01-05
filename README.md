@@ -10,7 +10,7 @@ The Digital Gym is a back-end Springboot project developed during the Cloud Full
  
 • Create a back-end project using Springboot
 
-• Study about Object Relational Mapping (ORM)
+• Study Object Relational Mapping (ORM)
 
 • Use Spring Data JPA
 
